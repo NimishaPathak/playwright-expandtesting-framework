@@ -11,7 +11,8 @@ export default defineConfig({
         baseURL: env.baseURL,
         headless: false,
         screenshot: 'only-on-failure',
-        video: 'retain-on-failure'
+        video: 'retain-on-failure',
+        serviceWorkers: 'block',  // blocks service workers
     },
     reporter: [
         ['list'],

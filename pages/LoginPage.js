@@ -1,18 +1,15 @@
-import BasePage from './BasePage.js';
-
-export default class LoginPage extends BasePage {
+export default class LoginPage {
     constructor(page) {
-        super(page);
-
+        this.page = page;
         this.usernameInput = page.locator('#username');
         this.passwordInput = page.locator('#password');
         this.loginBtn = page.locator('button[type="submit"]');
-        this.successMsg = page.locator('.alert-success');
+        this.loginPageHeading = page.getByRole('heading', { name: 'Test Login page for Automation Testing Practice' });
     }
 
     async login(username, password) {
-        await this.fill(this.usernameInput, username);
-        await this.fill(this.passwordInput, password);
-        await this.click(this.loginBtn)
+        await this.usernameInput.fill(username);
+        await this.passwordInput.fill(password);
+        await this.loginBtn.click();
     }
 }
