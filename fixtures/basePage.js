@@ -1,4 +1,5 @@
 import { test as base } from '@playwright/test';
+import POManager from '../pages/POManager';
 
 export const test = base.extend({
     page: async ({ page }, use) => {
@@ -18,6 +19,10 @@ export const test = base.extend({
             }
         });
         await use(page);
+    },
+
+    POManager: async ({ page }, use) => {
+        await use(new POManager(page));
     }
 });
 
