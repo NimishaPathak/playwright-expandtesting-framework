@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 import path from 'path';
 import fs from 'fs';
-import { error } from 'console';
 
 export function getEnv() {
     const envName = process.env.TEST_ENV || 'dev';
