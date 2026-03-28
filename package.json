@@ -1,7 +1,7 @@
 {
   "name": "playwright-expandtesting-framework",
-  "version": "1.0.0",
-  "description": "",
+  "version": "e64cd80e",
+  "description": "This website is designed to be a platform for practicing UI and API test automation, showcasing common and frequently encountered functionality found on the web, including some challenging and complex scenarios, as well as providing examples of test reports.",
   "main": "index.js",
   "types": "module",
   "scripts": {
