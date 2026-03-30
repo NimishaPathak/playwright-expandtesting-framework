@@ -9,7 +9,7 @@ export default defineConfig({
     retries: 1,
     use: {
         baseURL: env.baseURL,
-        headless: false,
+        headless: process.env.CI ? true : false,
         screenshot: 'only-on-failure',
         video: 'retain-on-failure',
         serviceWorkers: 'block',  // blocks service workers
