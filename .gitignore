@@ -4,3 +4,5 @@ playwright-report/
 .env
 configs/dev.env
 .vscode/
+allure-results/
+allure-report/

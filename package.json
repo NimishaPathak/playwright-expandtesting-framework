@@ -7,7 +7,10 @@
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
-    "test-ui": "playwright test --ui"
+    "test-ui": "playwright test --ui",
+    "allure:generate": "node scripts/allure-env.js && allure generate allure-results --clean",
+    "allure:open": "allure open allure-report",
+    "allure:report": "npm run allure:generate && npm run allure:open"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +19,8 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.58.2",
+    "allure-commandline": "^2.38.1",
+    "allure-playwright": "^3.6.0",
     "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-playwright": "^2.10.1",

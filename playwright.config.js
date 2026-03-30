@@ -16,7 +16,8 @@ export default defineConfig({
     },
     reporter: [
         ['list'],
-        ['html']
+        ['html'],
+        ['allure-playwright']
     ],
     fullyParallel: true
 })
