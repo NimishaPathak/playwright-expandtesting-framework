@@ -1,4 +1,4 @@
-import LandingPage from "./landingPage";
+import LandingPage from "./LandingPage";
 import LoginPage from "./LoginPage";
 import SecurePage from "./SecurePage";
 import NavigationComponent from "./Components/NavigationComponent";
