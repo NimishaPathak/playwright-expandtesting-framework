@@ -61,7 +61,6 @@ test.describe('Notes API', () => {
             }
         });
         const getAllNotesResponseBody = await getAllNotesResponse.json();
-        console.log("Get all notes response body: ", getAllNotesResponseBody);
         expect(getAllNotesResponse.status()).toBe(200);
         expect(getAllNotesResponseBody.success).toBe(true);
         expect(getAllNotesResponseBody.message).toBe('Notes successfully retrieved');
