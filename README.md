@@ -1,3 +1,5 @@
+![Playwright Tests](https://github.com/NimishaPathak/playwright-expandtesting-framework/actions/workflows/playwright.yml/badge.svg)
+
 # Playwright Automation Framework — expandtesting.com
 
 A test automation framework built with Playwright and JavaScript,
