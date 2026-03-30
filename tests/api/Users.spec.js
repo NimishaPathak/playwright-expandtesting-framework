@@ -1,4 +1,29 @@
 import { test, expect } from '@playwright/test';
+import { z } from 'zod';
+
+const registerSchema = z.object({
+    success: z.boolean(),
+    status: z.number(),
+    message: z.string(),
+    data: z.object({
+        id: z.string(), // MongoDB ObjectId = string
+        name: z.string(),
+        email: z.email()
+    })
+});
+
+const loginSchema = z.object({
+    success: z.boolean(),
+    status: z.number(),
+    message: z.string(),
+    data: z.object({
+        id: z.string(), // MongoDB ObjectId = string
+        email: z.email(),
+        name: z.string(),
+        token: z.string()
+    })
+});
+
 let token, userID;
 let newPassword = "Test@1234";
 const validUserDetails = {
@@ -25,6 +50,8 @@ test.describe('Users APIs', () => {
             form: validUserDetails
         });
         const registeredUserResponseBody = await registeredUserResponse.json();
+        const registerValidation = registerSchema.safeParse(registeredUserResponseBody);
+        expect(registerValidation.success).toBe(true);
         expect(registeredUserResponse.status()).toBe(201);
         expect(registeredUserResponseBody.success).toBe(true);
         expect(registeredUserResponseBody.message).toBe('User account created successfully');
@@ -34,6 +61,8 @@ test.describe('Users APIs', () => {
             form: loginDetails
         });
         const loginResponseBody = await loginResponse.json();
+        const loginValidation = loginSchema.safeParse(loginResponseBody);
+        expect(loginValidation.success).toBe(true);
         expect(loginResponse.status()).toBe(200);
         expect(loginResponseBody.success).toBe(true);
         expect(loginResponseBody.message).toBe('Login successful');
