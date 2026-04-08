@@ -1,7 +1,6 @@
 # Playwright Automation Framework — expandtesting.com
 
 ![Playwright Tests](https://github.com/NimishaPathak/playwright-expandtesting-framework/actions/workflows/playwright.yml/badge.svg)
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 [![Framework: Playwright](https://img.shields.io/badge/Framework-Playwright-2EAD33)](https://playwright.dev/)
 
 A robust, enterprise-ready test automation framework built with **Playwright** and **JavaScript**, designed to test both UI and API functionalities of [expandtesting.com](https://practice.expandtesting.com/).
@@ -36,15 +35,30 @@ A robust, enterprise-ready test automation framework built with **Playwright** a
 ```text
 .
 ├── .github/workflows/       # CI/CD pipelines
-├── configs/                 # Environment configurations (.env files)
-├── fixtures/                # Custom Playwright fixtures (injects POM, blocks ads)
+│   └── playwright.yml       # Main test execution workflow
+├── configs/                 # Environment configurations
+│   ├── dev.env              # Active environment variables
+│   ├── dev.env.example      # Template for environment variables
+│   └── envConfig.js         # Schema and config loader via Zod
+├── fixtures/                # Custom Playwright fixtures
+│   └── basePage.js          # Injects POMs and handles browser setup/blocking
 ├── pages/                   # Page Object classes
-│   └── Components/          # Reusable UI components
-├── scripts/                 # Utility scripts (e.g., Allure environment setup)
-├── test-data/               # JSON files for data-driven testing
+│   ├── Components/          # Reusable UI components
+│   │   └── NavigationComponent.js
+│   ├── LandingPage.js
+│   ├── LoginPage.js
+│   ├── POManager.js         # Centralized Page Object Manager
+│   └── SecurePage.js
+├── scripts/                 # Utility scripts
+│   └── allure-env.js        # Allure environment data generator
+├── test-data/               # Test data files
+│   └── users.json           # Data-driven test inputs
 ├── tests/
-│   ├── api/                 # API test suites (Health, Users, Notes, etc.)
-│   └── ui/                  # UI test suites (Login, etc.)
+│   ├── api/                 # API test suites
+│   │   ├── Notes.spec.js
+│   │   └── Users.spec.js
+│   └── ui/                  # UI test suites
+│       └── login.spec.js
 └── playwright.config.js     # Main Playwright configuration
 ```
 
@@ -131,6 +145,3 @@ Keep the codebase clean:
 5. Open a Pull Request.
 
 ---
-
-## 📄 License
-Distributed under the ISC License. See `LICENSE` for more information.
