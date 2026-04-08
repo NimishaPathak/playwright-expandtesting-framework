@@ -144,4 +144,6 @@ Keep the codebase clean:
 4. Push to the branch (`git push origin feature/AmazingFeature`).
 5. Open a Pull Request.
 
+## 📊 Live Allure Report
+https://nimishapathak.github.io/playwright-expandtesting-framework/
 ---
